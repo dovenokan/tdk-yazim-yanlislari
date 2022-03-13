@@ -5,9 +5,15 @@ function Quiz() {
   const [random, setRandom] = useState(Random())
   const [correct, setCorrect] = useState(0)
   const [incorrect, setIncorrect] = useState(0)
+  const [shuffled, setShuffled] = useState(Shuffle([random.d,random.y]))
+
+  function Shuffle(array){
+    return array.slice().sort(() => Math.random() - 0.5);
+  }
 
   function Random() {
-    let r = data[Math.floor(Math.random()*data.length)]
+    let i = Math.floor(Math.random()*data.length)
+    let r = data[i]
     return r
   }
 
@@ -17,16 +23,16 @@ function Quiz() {
     }else{
       setIncorrect(incorrect+1)
     }
+    console.log(shuffled,random)
     setRandom(Random())
-    console.log(random)
   }
 
   useEffect(() => {
-    //    
-  }, [])
+    setShuffled(Shuffle([random.d,random.y]))    
+  }, [random])
 
   return (
-  <div class="grid place-items-center h-80">
+  <div className="grid place-items-center h-80">
 
     <div className="score flex">
       <h3 className='bg-green-500 correct text-center px-5'>D: {correct}</h3>
@@ -34,11 +40,11 @@ function Quiz() {
     </div>
     
     <div className="question flex">
-      <button onClick={()=>Check(random.d)} type="button" class="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-        <p className='word'>{random.d}</p>
+      <button onClick={()=>Check(shuffled[0])} type="button" className="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+        <p className='word'>{shuffled[0]}</p>
       </button>
-      <button onClick={()=>Check(random.y)} type="button" class="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-        <p className='word'>{random.y}</p>
+      <button onClick={()=>Check(shuffled[1])} type="button" className="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+        <p className='word'>{shuffled[1]}</p>
       </button>
     </div>
   </div>
