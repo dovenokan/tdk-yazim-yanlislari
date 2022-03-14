@@ -1,13 +1,5 @@
 # TDK YAZIM YANLIŞLARI
 
-## Structure
-```
-│  ├─ data
-│  ├─ components
-│  ├─ pages
-│  ├─ config
-│  ├─ styles
-│  ├─ App.js
-```
+Front-end: React
 
-CSS: https://www.tailwind-kit.com/
+Styling: https://www.tailwind-kit.com/
