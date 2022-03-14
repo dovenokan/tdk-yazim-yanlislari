@@ -32,20 +32,25 @@ function Quiz() {
   }, [random])
 
   return (
-  <div className="grid place-items-center h-80">
-
-    <div className="score flex">
-      <h3 className='bg-green-500 correct text-center px-5'>D: {correct}</h3>
-      <h3 className='bg-red-500 incorrect text-center px-5'>Y: {incorrect}</h3>
-    </div>
-    
-    <div className="question flex">
-      <button onClick={()=>Check(shuffled[0])} type="button" className="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-        <p className='word'>{shuffled[0]}</p>
-      </button>
-      <button onClick={()=>Check(shuffled[1])} type="button" className="qbutton py-2 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
-        <p className='word'>{shuffled[1]}</p>
-      </button>
+  <div className="Quiz">
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="min-h-1/2 bg-gray-900  border border-gray-900 rounded-2xl">
+        <div className="mx-4 sm:mx-24 md:mx-34 lg:mx-56 mx-auto flex items-center space-y-4 py-16 font-semibold text-gray-500 flex-col">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/T%C3%BCrk_Dil_Kurumu_logo.png" className="w-12" alt="" />
+          <div className="text-white text-base flex">
+            <h3 className='bg-green-500 correct text-center px-5'>D: {correct}</h3>
+            <h3 className='bg-red-500 incorrect text-center px-5'>Y: {incorrect}</h3>
+          </div>
+          <div className="question flex">
+            <button onClick={()=>Check(shuffled[0])} type="button" className="qbutton py-3 bg-blue-600 hover:bg-blue-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+              <p className='word'>{shuffled[0]}</p>
+            </button>
+            <button onClick={()=>Check(shuffled[1])} type="button" className="qbutton py-3 bg-blue-600 hover:bg-blue-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg">
+              <p className='word'>{shuffled[1]}</p>
+            </button>
+          </div> 
+        </div>
+      </div>
     </div>
   </div>
 )

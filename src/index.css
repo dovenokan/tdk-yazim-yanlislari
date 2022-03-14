@@ -1,13 +1,12 @@
  
 
 body{
-    background-color: rgb(248, 238, 238);
+    background-color: #172a52;
 }
 
 .qbutton {
-    width: 15em;
+    width: 10em;
     border-radius: 5px;
-    padding: 1em;
     margin: 0.2rem;
     text-align: center;
 }
